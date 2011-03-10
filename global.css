@@ -1,0 +1,56 @@
+body {
+	font-family: "Gill Sans", 'lucida console';
+}
+
+#wrapper {
+	padding: 10px;
+}
+
+.code_input textarea {
+	width: 200px;
+	height: 100px;
+	font-size: 16px;
+	border: none;
+	margin-left: 15px;
+	font-family: 'lucida console', verdana;
+}
+
+.code_block {
+	font-size: 19px;
+	color: #444;
+	background: #f1f1f1;
+	margin-bottom: 10px;
+}
+
+.code_block .code {
+	padding: 10px;
+}
+
+.code_block a {
+	color: #444;
+	text-decoration: none;
+}
+
+.code_block a:hover {
+	color: #777;
+}
+
+.code_block .header {
+	height: 20px;
+	line-height: 20px;
+	background-color: #d1d1d1;
+	padding: 3px;
+}
+
+.code_block .delete {
+	float: right;
+	padding: 1px 2px; 3px;
+}
+
+.indent {
+	margin-left: 15px;
+}
+
+#sidebar {
+	width: 300px;
+}
