@@ -20,7 +20,22 @@ $(function() {
 
 
 	new Code('f1');
+	f = new Fractal("One");
+	function s1(v) {
+		return new Vector(v.x / 2, v.y / 2);
+	}
+	function s2(v) {
+		return new Vector(v.x+1 / 2, v.y / 2);
+	}
+	function s3(v) {
+		return new Vector(v.x / 2, v.y+1 / 2);
+	}
+	f.addFunc(new Func("s1", s1, new Color(0,0,0,0) ))
+	f.addFunc(new Func("s2", s2, new Color(0,0,0,0) ))
+	f.addFunc(new Func("s3", s3, new Color(0,0,0,0) ))
 	
+	f.compute(10*10*10);
+	f.render();
 });
 
 
