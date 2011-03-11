@@ -1,3 +1,4 @@
+var canvas, ctx;
 
 $(function() {
 	$('.toggle').live('click', function() {
@@ -16,7 +17,8 @@ $(function() {
 		f = new Code( name.val() );
 		name.val('');
 	});
-	
+
+
 	new Code('f1');
 	
 });
@@ -51,3 +53,5 @@ function Code(name) {
 		</div>"
 	);
 }
+
+

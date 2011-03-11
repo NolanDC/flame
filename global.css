@@ -2,8 +2,13 @@ body {
 	font-family: "Gill Sans", 'lucida console';
 }
 
-#wrapper {
-	padding: 10px;
+#main {
+	float: right;
+}
+
+#sidebar {
+	width: 250px;
+	float: left;
 }
 
 .code_input textarea {
@@ -51,6 +56,3 @@ body {
 	margin-left: 15px;
 }
 
-#sidebar {
-	width: 300px;
-}
