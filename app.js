@@ -1,3 +1,6 @@
+
+
+
 var canvas, ctx;
 
 $(function() {
@@ -21,20 +24,63 @@ $(function() {
 
 	new Code('f1');
 	f = new Fractal("One");
+	
+
+	function n(v) {
+		return new Vector(v.x, v.y);
+	}
+	
 	function s1(v) {
 		return new Vector(v.x / 2, v.y / 2);
 	}
 	function s2(v) {
-		return new Vector(v.x+1 / 2, v.y / 2);
+		return new Vector(parseFloat(v.x+1) / 2, v.y / 2);
 	}
 	function s3(v) {
-		return new Vector(v.x / 2, v.y+1 / 2);
+		return new Vector(v.x / 2, parseFloat(v.y+1) / 2);
 	}
-	f.addFunc(new Func("s1", s1, new Color(0,0,0,0) ))
-	f.addFunc(new Func("s2", s2, new Color(0,0,0,0) ))
-	f.addFunc(new Func("s3", s3, new Color(0,0,0,0) ))
+	function s4(v) {
+		return new Vector(Math.sin(v.x), Math.sin(v.y));
+	}
+	function s5(v) {
+		var coef = 1.0 / r(v)*r(v);
+		return new Vector(v.x * coef, v.y * coef);
+	}
+	function s6(v) {
+		var _r = r(v);
+		var _t = t(v);
+		
+		return new Vector(Math.sin(_t+_r)*_r, Math.cos(_t-_r)*_r);
+	}
 	
-	f.compute(10*10*10);
+	function hyperbolic(v) {
+		var _r = r(v);
+		var _t = t(v);
+		return new Vector(Math.sin(_t) / _r, _r * Math.cos(_t));
+	}
+	
+	function diamond(v) {
+		var _t = t(v);
+		var _r = r(v);
+		return new Vector(Math.sin(_t) * Math.cos(_r), Math.cos(_t) * Math.sin(_r));
+	}
+	
+	function r(v) {
+		return Math.sqrt(v.x * v.x + v.y * v.y);
+	}
+
+	function t(v) {
+		return Math.atan(v.x/v.y);
+	}
+	
+	f.addFunc( new Func("s1", hyperbolic, new Color(.5,0,0,.5) ))
+	f.addFunc( new Func("s2", diamond, new Color(0,.5,0,.5) ))
+	f.addFunc( new Func("s3", s6, new Color(0,0,.5,.5) ))
+	f.addFunc( new Func("s3", s5, new Color(0,1,0,.5) ))
+	f.addFunc( new Func("s3", s4, new Color(1,0,.5,.5) ))
+	
+	f.compute(1000000);
+	//f.compute(100);
 	f.render();
 });
 
